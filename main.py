@@ -2,7 +2,8 @@ import streamlit as st
 import pickle
 import numpy as np
 import re
-
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class BagofWords:
     def __init__(self):
@@ -32,9 +33,9 @@ __main__.BagofWords = BagofWords
 # =========================
 # LOAD FILES
 # =========================
-model = pickle.load(open("multinomial_naive_bayes_model.pkl", "rb"))
-bow = pickle.load(open("bag_of_words_vectorizer.pkl", "rb"))
 
+model = pickle.load(open(os.path.join(BASE_DIR, "multinomial_naive_bayes_model.pkl"), "rb"))
+bow = pickle.load(open(os.path.join(BASE_DIR, "bag_of_words_vectorizer.pkl"), "rb"))
 
 # =========================
 # PREPROCESS FUNCTION
